@@ -1,0 +1,28 @@
+{% extends 'include/nav.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>User reset password</title>
+</head>
+<main class="auth layout">
+    <div class="container">
+        <div class="layout__box">
+          <div class="layout__boxHeader">
+            <div class="layout__boxTitle">
+              <h3>Successful password reset</h3>
+            </div>
+          </div>
+          <div class="layout__body">
+            <h2 class="auth__tagline">Your account has been successfully activated. Return to login page</h2>
+
+            <form class="form" method="POST" action="">
+              {% csrf_token %}
+                <a href="{% url 'login' %}">
+                CANCEL
+              </a>
+            </form>
+          </div>
+        </div>
+      </div>
+</main>
+{% endblock content%}
