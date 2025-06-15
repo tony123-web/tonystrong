@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete</title>
+</head>
+<body>
+<div>
+    {% include 'navbar.html' %}
+    <form method="POST" action="">
+        {% csrf_token %}
+        <p>Are you sure you want to delete "{{room}}" ?</p>
+        <a href="/">GO BACK</a>
+        <input type="submit" value="Confirm"/>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rev Tech </title>
+    <style>
+        .home-container {
+        display : grid;
+        grid-template-columns : 1fr 3fr 1fr ;
+        }
+    </style>
+</head>
+<body>
+{% include 'navbar.html' %}
+{% block content %}
+
+<div class="home-container">
+    <div>
+        {% include 'my_app/topics.html' %}
+        <hr>
+    </div>
+
+
+    <div>
+        <a  href="{% url 'create-room' %}">
+        Create Room
+    </a>
+    <br> <br>
+        {% include 'my_app/mainPageInfo.html' %}
+    </div>
+
+
+    <div>
+     {% include 'my_app/activity_component.html' %}
+    </div>
+
+</div>
+{% endblock content %}
+
+</body>
+</html>

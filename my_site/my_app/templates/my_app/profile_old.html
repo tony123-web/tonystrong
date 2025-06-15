@@ -1,0 +1,36 @@
+
+{% include 'navbar.html' %}
+
+{% block content %}
+
+<style>
+
+    .profile_container{
+    display : grid;
+    grid-template-columns : 1fr 3fr 1fr;
+    }
+
+</style>
+
+<h2>{{user.username}}</h2>
+
+<div class="profile_container">
+
+    <div>
+        {% include 'my_app/topics.html' %}
+    </div>
+
+
+    <div>
+        {% include 'my_app/mainPageInfo.html' %}
+    </div>
+
+
+    <div>
+        {% include 'my_app/activity_component.html' %}
+    </div>
+
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rooms</title>
+    <style>
+        .room-container{
+        display : grid;
+        grid-template-columns : 3fr 1fr;
+        }
+    </style>
+
+</head>
+<body>
+<div class="room-container">
+
+    <div>
+        {% include 'navbar.html' %}
+<h2>{{room.name}}</h2>
+<p>{{ room.description}}</p>
+
+
+<div class="container-wrapper">
+    <h3>Conversation</h3>
+    {% for element in messageDetails %}
+    <div>
+        {% if request.user == element.user %}
+        <a href="/delete-message/{{element.id}}/">DELETE</a>
+        {% endif %}
+        <small>{{element.user}}  {{element.created|timesince}} ago</small>
+        <p>{{element.body}}</p>
+        <hr>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% if request.user == room.host %}
+<div class="comment-form">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <input type="text" name="body" placeholder="write your comment"/>
+    </form>
+</div>
+{% endif %}
+    </div>
+
+
+    <div>
+        <h3>Participants</h3>
+        {% for user in participants %}
+
+        <div>
+            {{ user.username}}
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+</body>
+</html>
